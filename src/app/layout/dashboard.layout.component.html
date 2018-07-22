@@ -1,0 +1,25 @@
+
+ <div class="example-container  fullheight"  >
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle() ">One Doc</button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container " [ngClass]="boxheight"
+  [style.background-color]="backgroundColor"
+                         >
+        <mat-sidenav class="sidenav-width" #snav [mode]="side"
+        fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/article" routerLinkActive="active">Profile</a>
+        <a mat-list-item routerLink="/address" routerLinkActive="active">Details</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<app-profile></app-profile>
+ 

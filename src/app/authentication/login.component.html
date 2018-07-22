@@ -1,0 +1,19 @@
+
+<body>
+ <div class="mainwrap"><div *ngIf="invalidCredentialMsg" [ngClass]="error">{{invalidCredentialMsg}}</div>
+<div class="wrap">
+		<h3>Login Here</h3>
+	<form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+		  <div class ="inputBox">
+			 <input type ="text"formControlName="username" placeholder="Username" required="">
+		 </div>
+   <div class ="inputBox">		 
+		<input type="password" formControlName="password" placeholder="password" required="">
+		</div>
+	 <div class="inputBox">
+		<input type="submit" name ="" value="Login">
+	  </div>
+	</form>
+</div>
+</div>
+</body>
