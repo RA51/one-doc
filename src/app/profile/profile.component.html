@@ -1,26 +1,39 @@
-<form class="example-form">
+
+<form class="example-form" [formGroup]="profileForm" (ngSubmit)="onFormSubmit(profileForm.value)">
 	<table class="example-full-width" cellspacing="0">
 		<tr>
 			<td>
 				<mat-form-field class="example-full-width">
-					<input matInput placeholder="First name">
-				</mat-form-field>
+					<input matInput placeholder="First name"  [formControl]="firstName" [errorStateMatcher]="matcher">
+          <!-- <mat-error>  
+              <span *ngIf="!profileForm.get('firstName').valid && profileForm.get('firstName').touched">Please enter Last Name !!!</span>  
+          </mat-error> -->
+        </mat-form-field>
 			</td>
 			<td>
 				<mat-form-field class="example-full-width">
-					<input matInput placeholder="Last Name ">
-				</mat-form-field>
+					<input matInput placeholder="Last Name " formControlName="lastName" >
+        </mat-form-field>
+        <!-- <mat-error>  
+            <span *ngIf="!profileForm.get('lastName').valid && profileForm.get('lastName').touched">Please enter Last Name !!!</span>  
+        </mat-error>   -->
       </td>
       <td>
 				<mat-form-field class="example-full-width">
-          <input matInput [matDatepicker]="picker" placeholder="Date of birth">
+          <input matInput [matDatepicker]="picker" placeholder="Date of birth" formControlName="dOB">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+          <!-- <mat-error>  
+              <span *ngIf="!profileForm.get('dOB').valid && profileForm.get('dOB').touched">Please enter date of birth !!!</span>  
+          </mat-error> -->
 				</mat-form-field>
       </td>
       <td>
 				<mat-form-field class="example-full-width">
-					<input matInput placeholder="Adhar No">
+          <input matInput placeholder="Adhar No"formControlName="adharNo">
+          <!-- <mat-error>  
+              <span *ngIf="!profileForm.get('dOB').valid && profileForm.get('dOB').touched">Please enter Adhar no !!!</span>  
+          </mat-error> -->
 				</mat-form-field>
       </td>
 		</tr>
@@ -29,22 +42,34 @@
 	<p>
        <td>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Father's name ">
+            <input matInput placeholder="Father's name"formControlName="fatherName">
+            <!-- <mat-error>  
+                <span *ngIf="!profileForm.get('fatherName').valid && profileForm.get('fatherName').touched">Please enter Father's name !!!</span>  
+            </mat-error> -->
           </mat-form-field>
       </td>
       <td>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Mother's name ">
+            <input matInput placeholder="Mother's name" formControlName="motherName">
+            <!-- <mat-error>  
+                <span *ngIf="!profileForm.get('motherName').valid && profileForm.get('motherName').touched">Please enter Mother's name !!!</span>  
+            </mat-error> -->
           </mat-form-field>
       </td>
       <td>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Age">
+            <input matInput placeholder="Age" formControlName="age">
+            <!-- <mat-error>  
+                <span *ngIf="!profileForm.get('age').valid && profileForm.get('age').touched">Please enter age !!!</span>  
+            </mat-error> -->
           </mat-form-field>
       </td>
       <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Marital Status">
+          <mat-form-field class="example-full-width" >
+            <input matInput placeholder="Marital Status" formControlName="maritalStatus">
+            <!-- <mat-error>  
+                <span *ngIf="!profileForm.get('maritalStatus').valid && profileForm.get('maritalStatus').touched">Please enter your marital status !!!</span>  
+            </mat-error> -->
           </mat-form-field>
       </td>
 	</p>
@@ -53,29 +78,44 @@
 		<tr>
         <td>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Profession">
+              <input matInput placeholder="Profession"formControlName="profession">
+              <!-- <mat-error>  
+                  <span *ngIf="!profileForm.get('profession').valid && profileForm.get('profession').touched">Please enter your profession !!!</span>  
+              </mat-error> -->
             </mat-form-field>
         </td>
       <td>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Sex">
+              <input matInput placeholder="Sex" formControlName="sex">
+              <!-- <mat-error>  
+                  <span *ngIf="!profileForm.get('sex').valid && profileForm.get('sex').touched">Please enter your sex !!!</span>  
+              </mat-error> -->
             </mat-form-field>
       </td>
 			<td>
 				<mat-form-field class="example-full-width">
-					<input matInput placeholder="City">
+          <input matInput placeholder="City"  formControlName="city">
+          <!-- <mat-error>  
+              <span *ngIf="!profileForm.get('city').valid && profileForm.get('city').touched">Please enter your sex !!!</span>  
+          </mat-error> -->
 				</mat-form-field>
 			</td>
 			<td>
 				<mat-form-field class="example-full-width">
-					<input matInput placeholder="State">
+          <input matInput placeholder="State" formControlName="state">
+          <!-- <mat-error>  
+              <span *ngIf="!profileForm.get('state').valid && profileForm.get('state').touched">Please enter your state!!!</span>  
+          </mat-error> -->
 				</mat-form-field>
 			</td>
     </tr>
     <tr>
        <p> <td>   
             <mat-form-field class="example-full-width">
-             <textarea matInput placeholder="Address"></textarea>
+             <textarea matInput placeholder="Address"formControlName="address" ></textarea>
+             <!-- <mat-error>  
+                <span *ngIf="!profileForm.get('address').valid && profileForm.get('address').touched">Please enter your complete address!!!</span>  
+            </mat-error> -->
              </mat-form-field>
       </td> 
     </p>

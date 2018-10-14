@@ -1,11 +1,10 @@
 import { Inject, Injectable } from "@angular/core";
-import { Socket } from "net";
 import { Subject } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { inject } from "@angular/core/src/render3";
+
 
 @Injectable()
-export class CoreServices {
+export  class CoreServices {
     
     public endspoints:any={
         'ONEDOC_SOCKET': {'socket':'', 'SOCKET': new Subject<string>()}
@@ -15,10 +14,20 @@ export class CoreServices {
     }
     public httpGet(url){
         const authorizationHeaders = { 'Authorization': localStorage.getItem('user') };
-        return this.http.get('http://localhost:8080/' + url);
+        return this.http.get('http://localhost:420/api/' + url);
     }
     public httpPost(url,body){
+
+        let httpHeaders = new HttpHeaders({
+            'Content-Type' : 'application/json',
+            'Cache-Control': 'no-cache'
+             });    
+             let options = {
+            headers: httpHeaders
+             };        
         const authorizationHeaders = { 'Authorization': localStorage.getItem('user') };
-        return this.http.post('http://localhost:8080/' + url,body);
+        // return this.http.post('http://localhost:8080/' + url,body, options);
+        return this.http.post('http://localhost:4200/api/' + url,body, options);
+        
     }
 }

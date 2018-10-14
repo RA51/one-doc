@@ -5,37 +5,42 @@ import { AuthGuardService } from './authentication/services/auth-guard.service';
 import { DashboardLayoutComponent }  from './layout/dashboard.layout.component';
 import { AddressComponent }  from './address/address.component';
 import { ProfileComponent} from './profile/profile.component';
-
+import { ProfileSummaryComponent} from './profile-summary/profile-summary.component';
+import {LoginComponent} from './authentication/login.component';
 const routes: Routes = [
-	{
+	/* {
 	   path: '',
 	   redirectTo: '/article',
 	   pathMatch: 'full'
-	},
+	}, */
 	{
 	   path: '',
 	   component: DashboardLayoutComponent,
 	   canActivate: [ AuthGuardService ],
 	   children: [
+		//  {
+		//     path: 'article',
+		//     loadChildren: './article/article.module#ArticleModule'
+		//  },
+		//  {
+		//     path: 'address',
+		//     component: AddressComponent
+		//  },
 		 {
-		    path: 'article',
-		    loadChildren: './article/article.module#ArticleModule'
+			path: 'profile-summary',
+			component: ProfileSummaryComponent
+				
 		 },
-		 {
-		    path: 'address',
-		    component: AddressComponent
+		 { 
+			path: 'profile',
+			component: ProfileComponent, 
 		 }
 	   ]		
 	},
 	{
 	   path: 'login',
-       loadChildren: './authentication/auth.module#AuthModule'
-	},
-	{
-		path: 'profile',
-		component: ProfileComponent,
-		canActivate: [ AuthGuardService ]	
-	 },
+       component: LoginComponent
+	}
 ];
 
 @NgModule({
